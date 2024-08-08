@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <title>Expenses App</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <section>
+        <h1 class="app-title">Учет расходов</h1>
+        <div class="input-section">
+            <div class="input-expense-wrapper">
+                <input 
+                type="text"
+                class="input-expense"
+                placeholder="100"
+            >
+            <p class="currency">руб.</p>
+            </div>
+            <button class="add-expense-btn">Добавить</button>
+        </div>
+        <div class="expense-info">
+            <div class="budget">
+                <div class="limit-wrapper">
+                    <h2 class="limit-title">Лимит:</h2>
+                    <p class="limit">10000 руб.</p>    
+                </div>
+                <div class="total-wrapper">
+                    <h2 class="total-title">Всего:</h2>
+                    <p class="total">1350 руб.</p>    
+                </div>
+                <div class="status-wrapper">
+                    <h2 class="status-title">Статус:</h2>
+                    <p class="status">все хорошо</p>    
+                </div>
+            </div>
+            <div class="history">
+                <h2 class="history__title">История:</h2>
+                <ol>
+                    <li class="history__transaction">100 руб.</li>
+                    <li class="history__transaction">200 руб.</li>
+                    <li class="history__transaction">50 руб.</li>
+                    <li class="history__transaction">1000 руб.</li>
+                </ol>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
