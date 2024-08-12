@@ -6,6 +6,7 @@ body {
 }
 
 section {
+    margin: 0 auto;
     max-width: 1400px;
     padding: 67px 258px 0 258px;
 }
@@ -65,6 +66,7 @@ ol {
 
     background-color: #0094FF;
     border: none;
+    cursor: pointer;
 }
 
 .expense-info {
@@ -76,7 +78,7 @@ ol {
     width: calc(100% - 400px);
 }
 
-.limit-title, .limit, .total-title, .total, .status-title, .status {
+.limit-title, .limit, .sum-title, .sum, .status-title, .status {
     display: inline;
 }
 
@@ -84,7 +86,7 @@ ol {
     margin-bottom: 13px;
 }
 
-.total-wrapper {
+.sum-wrapper {
     margin-bottom: 35px;
 }
 
@@ -92,3 +94,10 @@ ol {
     margin-bottom: 21px;
 }
 
+.status_green {
+    color: #039000;
+}
+
+.status_red {
+    color: #FC0000;
+}

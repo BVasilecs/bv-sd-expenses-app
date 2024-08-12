@@ -18,39 +18,37 @@
         <div class="input-section">
             <div class="input-expense-wrapper">
                 <input 
-                type="text"
-                class="input-expense"
+                type="number"
+                class="js-input-expense input-expense"
                 placeholder="100"
             >
             <p class="currency">руб.</p>
             </div>
-            <button class="add-expense-btn">Добавить</button>
+            <button class="js-add-expense-btn add-expense-btn ">Добавить</button>
         </div>
         <div class="expense-info">
             <div class="budget">
                 <div class="limit-wrapper">
                     <h2 class="limit-title">Лимит:</h2>
-                    <p class="limit">10000 руб.</p>    
+                    <p class="js-limit limit"></p>    
                 </div>
-                <div class="total-wrapper">
-                    <h2 class="total-title">Всего:</h2>
-                    <p class="total">1350 руб.</p>    
+                <div class="sum-wrapper">
+                    <h2 class="sum-title">Всего:</h2>
+                    <p class="js-sum sum"></p>    
                 </div>
                 <div class="status-wrapper">
                     <h2 class="status-title">Статус:</h2>
-                    <p class="status">все хорошо</p>    
+                    <p class="js-status status status_green"></p>    
                 </div>
             </div>
             <div class="history">
                 <h2 class="history__title">История:</h2>
-                <ol>
-                    <li class="history__transaction">100 руб.</li>
-                    <li class="history__transaction">200 руб.</li>
-                    <li class="history__transaction">50 руб.</li>
-                    <li class="history__transaction">1000 руб.</li>
+                <ol class="js-history__transactions history__transactions">
                 </ol>
             </div>
         </div>
+
+    <script src="index.js"></script>
 
     </section>
 </body>
