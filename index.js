@@ -1,7 +1,7 @@
 const LIMIT = 10000;
 const CURRENCY = "руб.";
 const STATUS_IN_LIMIT = "все хорошо";
-const STATUS_OUT_OF_LIMIT = "все хорошо";
+const STATUS_OUT_OF_LIMIT = "все плохо";
 const STATUS_IN_LIMIT_CLASSNAME = "status_green";
 const STATUS_OUT_OF_LIMIT_CLASSNAME = "status_red";
 
