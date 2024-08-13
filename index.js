@@ -11,12 +11,34 @@ const historyTransactionsNode = document.querySelector(".js-history__transaction
 const sumNode = document.querySelector(".js-sum");
 const limitNode = document.querySelector(".js-limit");
 const statusNode = document.querySelector(".js-status");
+const resetBtnNode = document.querySelector(".js-reset-btn");
 
 const expenses = [];
 
 init(expenses);
 
 addExpenseBtnNode.addEventListener("click", function() {
+    handleAddExpense();
+});
+
+inputExpenseNode.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        handleAddExpense();
+    }
+});
+
+resetBtnNode.addEventListener("click", function() {
+    console.log("test");
+    resetExpense();
+});
+
+function init(expenses) {
+    limitNode.innerText = `${LIMIT.toFixed(2)} ${CURRENCY}`;
+    statusNode.innerText = STATUS_IN_LIMIT;
+    sumNode.innerText = `${calculateExpenses(expenses)} ${CURRENCY}`;
+};
+
+function handleAddExpense() {
     const expense = getExpenseFromUser();
 
     if (!expense) {
@@ -24,16 +46,8 @@ addExpenseBtnNode.addEventListener("click", function() {
     }
 
     trackExpense(expense);
-
-    render (expenses);
-});
-
-
-function init(expenses) {
-    limitNode.innerText = `${LIMIT} ${CURRENCY}`;
-    statusNode.innerText = STATUS_IN_LIMIT;
-    sumNode.innerText = `${calculateExpenses(expenses)} ${CURRENCY}`;
-};
+    render(expenses);
+}
 
 
 function getExpenseFromUser() {
@@ -41,7 +55,7 @@ function getExpenseFromUser() {
         return null;
     }
 
-    const expense = parseInt(inputExpenseNode.value); //only whole values. Decimals are rounded
+    const expense = parseFloat(inputExpenseNode.value); //only whole values. Decimals are rounded down
 
     clearInput();
 
@@ -85,7 +99,7 @@ function renderHistory(expenses) {
     let expensesListHTML = "";
 
     expenses.forEach(element => {
-        expensesListHTML += `<li>${element} ${CURRENCY}</li>`;
+        expensesListHTML += `<li>${element.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${CURRENCY}</li>`;
     });
 
     historyTransactionsNode.innerHTML = `${expensesListHTML}`;
@@ -93,7 +107,7 @@ function renderHistory(expenses) {
 
 
 function renderSum(sum) {
-    sumNode.innerText = `${sum} ${CURRENCY}`;
+    sumNode.innerText = `${sum.toFixed(2)} ${CURRENCY}`;
 };
 
 
@@ -107,4 +121,9 @@ function renderStatus(sum) {
         statusNode.classList.remove(STATUS_IN_LIMIT_CLASSNAME)
         statusNode.classList.add(STATUS_OUT_OF_LIMIT_CLASSNAME);
     };
+};
+
+function resetExpense() {
+    expenses.length = 0;
+    render(expenses);
 };

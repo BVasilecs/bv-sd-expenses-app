@@ -49,6 +49,12 @@ ol {
     line-height: inherit;
 }
 
+.input-expense::-webkit-outer-spin-button,
+.input-expense::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .currency {
     position: absolute;
     top: 10px;
@@ -72,14 +78,19 @@ ol {
 .expense-info {
     display: flex;
     gap: 30px;
+    margin-bottom: 70px;
 }
 
 .budget {
     width: calc(100% - 400px);
 }
 
-.limit-title, .limit, .sum-title, .sum, .status-title, .status {
-    display: inline;
+.limit-title, .sum-title, .status-title {
+    font-weight: 700;
+}
+
+.limit, .sum, .title {
+    font-weight: 400;
 }
 
 .limit-wrapper {
@@ -100,4 +111,17 @@ ol {
 
 .status_red {
     color: #FC0000;
+}
+
+.reset-btn {
+    width: 484px;
+    height: 58px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: #FFF;
+    background-color: #F00;
+    border: none;
+    cursor: pointer;
 }

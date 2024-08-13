@@ -21,6 +21,7 @@
                 type="number"
                 class="js-input-expense input-expense"
                 placeholder="100"
+                step = "0.01"
             >
             <p class="currency">руб.</p>
             </div>
@@ -29,16 +30,14 @@
         <div class="expense-info">
             <div class="budget">
                 <div class="limit-wrapper">
-                    <h2 class="limit-title">Лимит:</h2>
-                    <p class="js-limit limit"></p>    
+                    <p class="limit-title">Лимит: <span class="js-limit limit"></span></p>
+                    <button></button>
                 </div>
                 <div class="sum-wrapper">
-                    <h2 class="sum-title">Всего:</h2>
-                    <p class="js-sum sum"></p>    
+                    <p class="sum-title">Всего: <span class="js-sum sum"></span></p> 
                 </div>
                 <div class="status-wrapper">
-                    <h2 class="status-title">Статус:</h2>
-                    <p class="js-status status status_green"></p>    
+                    <p class="status-title">Статус: <span class="js-status status status_green"></span></p>  
                 </div>
             </div>
             <div class="history">
@@ -46,6 +45,9 @@
                 <ol class="js-history__transactions history__transactions">
                 </ol>
             </div>
+        </div>
+        <div class="reset-expenses">
+            <button class="js-reset-btn reset-btn">Сбросить расходы</button>
         </div>
 
     <script src="index.js"></script>
