@@ -145,7 +145,7 @@ function renderStatus(sum) {
         statusNode.classList.remove(STATUS_OUT_OF_LIMIT_CLASSNAME);
         statusNode.classList.add(STATUS_IN_LIMIT_CLASSNAME);
     } else {
-        statusNode.innerText = STATUS_OUT_OF_LIMIT;
+        statusNode.innerText = `${STATUS_OUT_OF_LIMIT} (${(limit - sum).toFixed(2)} ${CURRENCY})`;
         statusNode.classList.remove(STATUS_IN_LIMIT_CLASSNAME)
         statusNode.classList.add(STATUS_OUT_OF_LIMIT_CLASSNAME);
     };

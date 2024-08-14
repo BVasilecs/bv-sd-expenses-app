@@ -38,15 +38,25 @@ ol {
     position: relative;
 }
 
-.input-expense {
+.input-expense, .category-select {
     box-sizing: border-box;
     width: 100%;
     height: 58px;
+    margin-bottom: 18px;
     padding: 10px 99px 9px 22px;
     border: solid 1px #000;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+}
+
+.category-select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    background: url(../resources/drop-down-icon.png) no-repeat right center;
+    background-position: 95% 50%;
+    background-size: 20px; /* Adjust size of custom arrow */
 }
 
 .input-expense::-webkit-outer-spin-button,
@@ -89,7 +99,7 @@ ol {
     font-weight: 700;
 }
 
-.limit, .sum, .title {
+.limit, .sum, .title, .stauts {
     font-weight: 400;
 }
 
