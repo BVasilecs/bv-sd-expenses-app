@@ -1,0 +1,95 @@
+.body_fixed {
+    overflow: hidden;
+}
+
+.change-limit-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.popup_open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__content {
+    position: relative;
+    width: 991px;
+    max-height: 525px;
+    overflow-y: auto;
+    padding: 47px 57px 234px 57px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 39px;
+    right: 35px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-image: url(../resources/close-icon.png);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.popup__title {
+    margin-bottom: 150px;
+}
+
+.change-limit-wrapper {
+    display: flex;
+    gap: 30px;
+
+}
+
+.input-limit-wrapper {
+    position: relative;
+    width: calc(100% - 400px);
+
+}
+
+.new-limit-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 58px;
+    padding: 10px 99px 9px 22px;
+    border: solid 1px #000;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.new-limit-input::-webkit-outer-spin-button,
+.new-limit-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.set-limit {
+    width: calc(100% - 514px);
+    height: 58px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 400;
+    color: #FFF;
+
+    background-color: #0094FF;
+    border: none;
+    cursor: pointer;
+}
