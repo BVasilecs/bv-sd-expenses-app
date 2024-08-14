@@ -38,6 +38,12 @@ inputExpenseNode.addEventListener("keydown", function(event) {
     }
 });
 
+categoryExpenseNode.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        handleAddExpense();
+    }
+});
+
 resetBtnNode.addEventListener("click", function() {
     resetExpense();
 });
