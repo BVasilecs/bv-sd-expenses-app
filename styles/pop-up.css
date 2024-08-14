@@ -54,6 +54,7 @@
 .change-limit-wrapper {
     display: flex;
     gap: 30px;
+    margin-bottom: 30px;
 
 }
 
@@ -80,7 +81,7 @@
   margin: 0;
 }
 
-.set-limit {
+.set-limit-btn {
     width: calc(100% - 514px);
     height: 58px;
     font-family: inherit;
@@ -92,4 +93,13 @@
     background-color: #0094FF;
     border: none;
     cursor: pointer;
+}
+
+.notification {
+    color: #039000;
+    visibility: hidden;
+}
+
+.notification_visible {
+    visibility: visible;
 }

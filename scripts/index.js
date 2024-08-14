@@ -1,4 +1,4 @@
-const LIMIT = 10000;
+let limit = 10000;
 const CURRENCY = "руб.";
 const STATUS_IN_LIMIT = "все хорошо";
 const STATUS_OUT_OF_LIMIT = "все плохо";
@@ -12,7 +12,12 @@ const sumNode = document.querySelector(".js-sum");
 const limitNode = document.querySelector(".js-limit");
 const statusNode = document.querySelector(".js-status");
 const currencyNodes = document.querySelectorAll(".js-currency");
+
 const resetBtnNode = document.querySelector(".js-reset-btn");
+
+const newLimitNode = document.querySelector(".js-new-limit");
+const setLimitBtnNode = document.querySelector(".js-set-limit-btn");
+const notificationNode = document.querySelector(".js-notification");
 
 const expenses = [];
 
@@ -29,12 +34,21 @@ inputExpenseNode.addEventListener("keydown", function(event) {
 });
 
 resetBtnNode.addEventListener("click", function() {
-    console.log("test");
     resetExpense();
 });
 
+setLimitBtnNode.addEventListener("click", function() {
+    handleLimitChange();
+});
+
+newLimitNode.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        handleLimitChange();
+    }
+});
+
 function init(expenses) {
-    limitNode.innerText = `${LIMIT.toFixed(2)} ${CURRENCY}`;
+    limitNode.innerText = `${limit.toFixed(2)} ${CURRENCY}`;
     statusNode.innerText = STATUS_IN_LIMIT;
     sumNode.innerText = `${calculateExpenses(expenses)} ${CURRENCY}`;
     currencyNodes.forEach (node => {
@@ -50,6 +64,16 @@ function handleAddExpense() {
     }
 
     trackExpense(expense);
+    render(expenses);
+}
+
+function handleLimitChange() {
+    setNewLimit();
+    renderNotification();
+    setTimeout(function(){
+        togglePopup();
+        renderNotification();
+    }, 700);
     render(expenses);
 }
 
@@ -95,7 +119,7 @@ function render (expenses) {
     renderHistory(expenses);
     renderSum(sum);
     renderStatus(sum);
-
+    renderLimit(limit);
 };
 
 
@@ -116,7 +140,7 @@ function renderSum(sum) {
 
 
 function renderStatus(sum) {
-    if (sum <= LIMIT) {
+    if (sum <= limit) {
         statusNode.innerText = STATUS_IN_LIMIT;
         statusNode.classList.remove(STATUS_OUT_OF_LIMIT_CLASSNAME);
         statusNode.classList.add(STATUS_IN_LIMIT_CLASSNAME);
@@ -127,7 +151,20 @@ function renderStatus(sum) {
     };
 };
 
+function renderLimit(limit) {
+    limitNode.innerText = `${limit.toFixed(2)} ${CURRENCY}`;
+}
+
 function resetExpense() {
     expenses.length = 0;
     render(expenses);
 };
+
+
+function setNewLimit() {
+    limit = parseFloat(newLimitNode.value) || 0;
+}
+
+function renderNotification() {
+    notificationNode.classList.toggle("notification_visible");
+}
