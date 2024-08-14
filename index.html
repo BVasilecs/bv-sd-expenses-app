@@ -26,14 +26,17 @@
             >
             <p class="js-currency currency"></p>
             <select name="category" class="js-category-select category-select" aria-placeholder="helo">
-                <option value="Категория">Категория</option>
+                <option value="Категория">-- Категория --</option>
                 <option value="Транспорт">Транспорт</option>
                 <option value="Кафе и рестораны">Кафе и рестораны</option>
                 <option value="Аптека">Аптека</option>
                 <option value="Развлечения">Развлечения</option>
             </select>
             </div>
-            <button class="js-add-expense-btn add-expense-btn ">Добавить</button>
+            <div class="add-expense-btn-wrapper">
+                <button class="js-add-expense-btn add-expense-btn ">Добавить</button>
+                <p class="js-error-notification error-notification"></p>    
+            </div>
         </div>
         <div class="expense-info">
             <div class="budget">

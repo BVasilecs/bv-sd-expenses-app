@@ -4,8 +4,11 @@ const STATUS_IN_LIMIT = "все хорошо";
 const STATUS_OUT_OF_LIMIT = "все плохо";
 const STATUS_IN_LIMIT_CLASSNAME = "status_green";
 const STATUS_OUT_OF_LIMIT_CLASSNAME = "status_red";
+const ERROR_CATEGORY = "Выберите категорию";
+const ERROR_VALUE = "Введите сумму расхода";
 
 const inputExpenseNode = document.querySelector(".js-input-expense");
+const categoryExpenseNode = document.querySelector(".js-category-select");
 const addExpenseBtnNode = document.querySelector(".js-add-expense-btn");
 const historyTransactionsNode = document.querySelector(".js-history__transactions");
 const sumNode = document.querySelector(".js-sum");
@@ -18,6 +21,8 @@ const resetBtnNode = document.querySelector(".js-reset-btn");
 const newLimitNode = document.querySelector(".js-new-limit");
 const setLimitBtnNode = document.querySelector(".js-set-limit-btn");
 const notificationNode = document.querySelector(".js-notification");
+
+const errorNode = document.querySelector(".js-error-notification");
 
 const expenses = [];
 
@@ -57,9 +62,16 @@ function init(expenses) {
 };
 
 function handleAddExpense() {
+    if (categoryExpenseNode.value === "Категория") {
+        renderError();
+        return;
+    }
+
+    removeError();
     const expense = getExpenseFromUser();
 
     if (!expense) {
+        renderError();
         return;
     }
 
@@ -83,12 +95,15 @@ function getExpenseFromUser() {
         return null;
     }
 
-    const expense = parseFloat(inputExpenseNode.value); //only whole values. Decimals are rounded down
+    const expense = parseFloat(inputExpenseNode.value);
+    const category = categoryExpenseNode.value;
 
     clearInput();
 
-    return expense;
-
+    return {
+        expense: expense,
+        category: category
+    }
 };
 
 
@@ -106,7 +121,7 @@ function calculateExpenses(expenses) {
     let sum = 0;
 
     expenses.forEach(element => {
-        sum += element;
+        sum += element.expense;
     });
 
     return sum;
@@ -127,7 +142,7 @@ function renderHistory(expenses) {
     let expensesListHTML = "";
 
     expenses.forEach(element => {
-        expensesListHTML += `<li>${element.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${CURRENCY}</li>`;
+        expensesListHTML += `<li>${element.expense.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${CURRENCY} - ${element.category}</li>`;
     });
 
     historyTransactionsNode.innerHTML = `${expensesListHTML}`;
@@ -167,4 +182,16 @@ function setNewLimit() {
 
 function renderNotification() {
     notificationNode.classList.toggle("notification_visible");
+}
+
+function renderError() {
+    if (categoryExpenseNode.value === "Категория") {
+        errorNode.innerText = ERROR_CATEGORY;
+    } else {
+        errorNode.innerText = ERROR_VALUE;
+    }
+}
+
+function removeError() {
+    errorNode.innerText = "";
 }

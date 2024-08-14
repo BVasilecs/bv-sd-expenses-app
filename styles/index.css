@@ -74,6 +74,7 @@ ol {
 .add-expense-btn {
     width: 370px;
     height: 58px;
+    margin-bottom: 20px;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -83,6 +84,10 @@ ol {
     background-color: #0094FF;
     border: none;
     cursor: pointer;
+}
+
+.error-notification {
+    color: #F00;
 }
 
 .expense-info {
