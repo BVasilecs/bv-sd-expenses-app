@@ -9,8 +9,9 @@
     
     <title>Expenses App</title>
 
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/pop-up.css">
 </head>
 <body>
     <section>
@@ -23,7 +24,7 @@
                 placeholder="100"
                 step = "0.01"
             >
-            <p class="currency">руб.</p>
+            <p class="js-currency currency"></p>
             </div>
             <button class="js-add-expense-btn add-expense-btn ">Добавить</button>
         </div>
@@ -31,7 +32,7 @@
             <div class="budget">
                 <div class="limit-wrapper">
                     <p class="limit-title">Лимит: <span class="js-limit limit"></span></p>
-                    <button></button>
+                    <button class="js-change-limit change-limit"></button>
                 </div>
                 <div class="sum-wrapper">
                     <p class="sum-title">Всего: <span class="js-sum sum"></span></p> 
@@ -50,8 +51,21 @@
             <button class="js-reset-btn reset-btn">Сбросить расходы</button>
         </div>
 
-    <script src="index.js"></script>
-
+        <div class="change-limit-popup">
+            <button class="js-close close"></button>
+            <h1>Новый лимит</h1>
+            <div class="input-limit-wrapper">
+                <input
+                type="number"
+                class="js-new-limit new-limit"
+                placeholder="100"
+                step="0.01"
+                >
+                <p class="js-currency currency"></p>
+            </div>
+            <button class="js-set-limit set-limit">Задать лимит</button>
+        </div>
     </section>
+    <script src="index.js"></script>
 </body>
 </html>

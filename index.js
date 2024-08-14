@@ -11,6 +11,7 @@ const historyTransactionsNode = document.querySelector(".js-history__transaction
 const sumNode = document.querySelector(".js-sum");
 const limitNode = document.querySelector(".js-limit");
 const statusNode = document.querySelector(".js-status");
+const currencyNodes = document.querySelectorAll(".js-currency");
 const resetBtnNode = document.querySelector(".js-reset-btn");
 
 const expenses = [];
@@ -36,6 +37,9 @@ function init(expenses) {
     limitNode.innerText = `${LIMIT.toFixed(2)} ${CURRENCY}`;
     statusNode.innerText = STATUS_IN_LIMIT;
     sumNode.innerText = `${calculateExpenses(expenses)} ${CURRENCY}`;
+    currencyNodes.forEach (node => {
+        node.innerText = `${CURRENCY}`;
+    })
 };
 
 function handleAddExpense() {

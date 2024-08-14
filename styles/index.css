@@ -97,6 +97,16 @@ ol {
     margin-bottom: 13px;
 }
 
+.change-limit {
+    width: 42px;
+    height: 42px;
+    margin-left: 12px;
+    padding: 0;
+    background-image: url(../resources/edit-icon.png);
+    background-color: transparent;
+    border: none;
+}
+
 .sum-wrapper {
     margin-bottom: 35px;
 }
