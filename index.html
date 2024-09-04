@@ -16,14 +16,15 @@
 <body>
     <section>
         <h1 class="app-title">Учет расходов</h1>
-        <div class="input-section">
+        <div class="expenses-wrapper">
             <div class="input-expense-wrapper">
                 <input 
                 type="number"
                 class="js-input-expense input-expense"
                 placeholder="100"
+                min="0"
                 step = "0.01"
-            >
+                >
             <p class="js-currency currency"></p>
             <select name="category" class="js-category-select category-select" aria-placeholder="helo">
                 <option value="Категория">-- Категория --</option>
@@ -37,8 +38,6 @@
                 <button class="js-add-expense-btn add-expense-btn ">Добавить</button>
                 <p class="js-error-notification error-notification"></p>    
             </div>
-        </div>
-        <div class="expense-info">
             <div class="budget">
                 <div class="limit-wrapper">
                     <p class="limit-title">Лимит: <span class="js-limit limit"></span></p>
@@ -80,7 +79,6 @@
                 <div class="js-notification notification">Лимит успешно обновлен</div>
             </div>
         </div>
-
     </section>
     <script src="scripts/index.js"></script>
     <script src="scripts/popup.js"></script>

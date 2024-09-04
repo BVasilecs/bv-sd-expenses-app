@@ -8,7 +8,7 @@ body {
 section {
     margin: 0 auto;
     max-width: 1400px;
-    padding: 67px 258px 0 258px;
+    padding: 67px 200px 0 200px;
 }
 
 h1, h2 {
@@ -17,24 +17,31 @@ h1, h2 {
 }
 
 ol {
-    list-style-type: decimal;
-    margin-left: 20px; /* Adds a left margin to create space for numbers */
-    padding-left: 20px; /* Optional: Adjust padding for better alignment */
+    list-style: decimal;
+    list-style-position: inside;
+}
+
+.expenses-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 40px;
+    row-gap: 43px;
+    margin-bottom: 70px;
 }
 
 .app-title {
     margin-bottom: 41px;
 }
 
-.input-section {
-    display: flex;
-    gap: 30px;
-    width: 100%;
-    margin-bottom: 50px;
+.input-expense-wrapper,
+.add-expense-btn-wrapper,
+.budget,
+.history {
+    width: calc(50% - 20px);
 }
 
 .input-expense-wrapper {
-    width: calc(100% - 400px);
     position: relative;
 }
 
@@ -50,13 +57,19 @@ ol {
     line-height: inherit;
 }
 
+.currency {
+    position: absolute;
+    top: 10px;
+    right: 17px;
+}
+
 .category-select {
-    appearance: none; /* Remove default arrow */
-    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
-    -moz-appearance: none; /* Remove default arrow in Firefox */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background: url(../resources/drop-down-icon.png) no-repeat right center;
     background-position: 95% 50%;
-    background-size: 20px; /* Adjust size of custom arrow */
+    background-size: 20px;
 }
 
 .input-expense::-webkit-outer-spin-button,
@@ -65,11 +78,7 @@ ol {
   margin: 0;
 }
 
-.currency {
-    position: absolute;
-    top: 10px;
-    right: 17px;
-}
+
 
 .add-expense-btn {
     width: 370px;
@@ -94,10 +103,6 @@ ol {
     display: flex;
     gap: 30px;
     margin-bottom: 70px;
-}
-
-.budget {
-    width: calc(100% - 400px);
 }
 
 .limit-title, .sum-title, .status-title {

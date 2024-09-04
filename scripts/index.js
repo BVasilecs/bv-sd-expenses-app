@@ -76,7 +76,7 @@ function handleAddExpense() {
     removeError();
     const expense = getExpenseFromUser();
 
-    if (!expense) {
+    if (!expense | expense.expense <= 0) {
         renderError();
         return;
     }
